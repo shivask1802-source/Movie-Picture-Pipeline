@@ -20,4 +20,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["uwsgi", "--http-socket", ":5000", "--master", "--enable-threads", "--chdir", "/app", "--module", "__init__:app"]
+CMD ["uwsgi", "--http-socket", ":5000", "--master", "--enable-threads", "-s", "/var/www/app/app.sock", "--manage-script-name", "--mount", "/=app:app"]
